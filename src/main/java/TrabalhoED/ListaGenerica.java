@@ -33,7 +33,7 @@ public class ListaGenerica<Tipo> {
         if (lista.isEmpty()) {
             System.out.println("A lista está vazia.");
         } else {
-            //Usando for-each para percorrer a lista
+            //Usando for-each para percorrer a lista e imprimir cada elemento
             for (Tipo elemento : lista) {
                 System.out.println(elemento);
             }
