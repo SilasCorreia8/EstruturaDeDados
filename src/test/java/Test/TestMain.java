@@ -4,9 +4,14 @@ package Test;
 import TrabalhoED.Fila;
 import TrabalhoED.ListaGenerica;
 import TrabalhoED.Pessoa;
+import TrabalhoED.Pilha;
+import java.util.List;
 
 public class TestMain {
     public static void main(String[] args) {
+        
+        
+        // ------- Teste da ListaGenerica -------
         
         /*
         
@@ -53,6 +58,10 @@ public class TestMain {
 
         */
         
+        // ------- Teste da Fila -------
+        
+        /*
+        
         Fila filaPessoas = new Fila();
 
         // Adicionando pessoas em ordem aleatória
@@ -83,5 +92,33 @@ public class TestMain {
         // Exibindo a fila ordenada
         System.out.println("\nFila de Pessoas (ordenada por idade):");
         filaPessoas.mostrarFila();
+        
+        */
+        
+        // ------- Teste da Pilha -------
+        
+        //Criando Lista
+        ListaGenerica<Pessoa> listaPessoas = new ListaGenerica<>();
+
+        // Adicionando pessoas
+        Pessoa pessoa1 = new Pessoa("Alice Silva", 25);
+        Pessoa pessoa2 = new Pessoa("Bob Matos", 30);
+        Pessoa pessoa3 = new Pessoa("Carol Silva", 28);
+        Pessoa pessoa4 = new Pessoa("David Matos", 35);
+        Pessoa pessoa5 = new Pessoa("Silas Correia", 20);
+
+        listaPessoas.adicionar(pessoa1);
+        listaPessoas.adicionar(pessoa2);
+        listaPessoas.adicionar(pessoa3);
+        listaPessoas.adicionar(pessoa4);
+        listaPessoas.adicionar(pessoa5);
+        
+        // Criando pilha por segundo nome
+        List<Pilha> listaPilha = listaPessoas.pilhaPorSegundoNome();
+        
+        // Exibindo as pilhas
+        System.out.println("\nLista de Pilhas por segundo nome");
+        listaPessoas.mostrarListaPilhas(listaPilha);
+        
     }
 }
