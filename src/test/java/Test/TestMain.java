@@ -1,6 +1,7 @@
 
 package Test;
 
+import TrabalhoED.Arvore;
 import TrabalhoED.Fila;
 import TrabalhoED.ListaGenerica;
 import TrabalhoED.Pessoa;
@@ -95,6 +96,8 @@ public class TestMain {
         
         */
         
+        /*
+        
         // ------- Teste da Pilha -------
         
         //Criando Lista
@@ -111,7 +114,7 @@ public class TestMain {
         listaPessoas.adicionar(pessoa2);
         listaPessoas.adicionar(pessoa3);
         listaPessoas.adicionar(pessoa4);
-        listaPessoas.adicionar(pessoa5);
+        listaPessoas.adicionar(pessoa5); 
         
         // Criando pilha por segundo nome
         List<Pilha> listaPilha = listaPessoas.pilhaPorSegundoNome();
@@ -119,6 +122,37 @@ public class TestMain {
         // Exibindo as pilhas
         System.out.println("\nLista de Pilhas por segundo nome");
         listaPessoas.mostrarListaPilhas(listaPilha);
+        
+        */
+        
+        
+        
+        // ------- Teste da Arvore -------
+        
+        Arvore arvore = new Arvore();
+
+        // Criando pessoas
+        Pessoa pessoa1 = new Pessoa("Alice", 25);
+        Pessoa pessoa2 = new Pessoa("Bob", 30);
+        Pessoa pessoa3 = new Pessoa("Carol", 28);
+        Pessoa pessoa4 = new Pessoa("David", 35);
+        Pessoa pessoa5 = new Pessoa("Eva", 22);
+        Pessoa pessoa6 = new Pessoa("Alice", 27); // Nome repetido
+
+        // Adicionando pessoas
+        arvore.adicionar(pessoa1);
+        arvore.adicionar(pessoa2);
+        arvore.adicionar(pessoa3);
+        arvore.adicionar(pessoa4);
+        arvore.adicionar(pessoa5);
+        arvore.adicionar(pessoa6);
+
+        // Mostrando a árvore
+        arvore.mostrarEmOrdem();
+        arvore.mostrarPreOrdem();
+
+        // Mostrando nomes não inseridos
+        arvore.mostrarNaoInseridas();
         
     }
 }
