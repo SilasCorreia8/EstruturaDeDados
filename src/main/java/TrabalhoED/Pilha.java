@@ -6,7 +6,7 @@ import java.util.Stack;
 public class Pilha {
     
     //Criação da Pilha
-    public Stack<Pessoa> pilha;
+    private Stack<Pessoa> pilha;
     
     //Construtor da Classe. Ele é chamado quando um novo objeto Fila é criado.
     public Pilha() {
@@ -14,7 +14,11 @@ public class Pilha {
         //com uma nova Stack quando um objeto Pilha é criado.
         this.pilha = new Stack<>();
     }
-    
+
+    public Stack<Pessoa> getPilha() {
+        return pilha;
+    }
+
     //Adicionar
     public void adicionar(Pessoa pessoa) {
         pilha.push(pessoa);

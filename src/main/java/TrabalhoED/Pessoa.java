@@ -4,8 +4,8 @@ package TrabalhoED;
 
 public class Pessoa {
     
-    public String nome;
-    public int idade;
+    private String nome;
+    private int idade;
 
     //Constructor
     public Pessoa(String nome, int idade) {

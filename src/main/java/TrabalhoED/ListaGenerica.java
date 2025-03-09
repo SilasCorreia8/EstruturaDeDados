@@ -10,7 +10,7 @@ import java.util.List;
 public class ListaGenerica<Tipo> {
     
     //Criação da Lista
-    public LinkedList<Tipo> lista;
+    private LinkedList<Tipo> lista = new LinkedList<>();
     
     //Construtor da Classe. Ele é chamado quando um novo objeto ListaGenerica é criado.
     public ListaGenerica() {
@@ -18,7 +18,11 @@ public class ListaGenerica<Tipo> {
         //ListaGenerica é criado.
         this.lista = new LinkedList<>();
     }
-    
+
+    public LinkedList<Tipo> getLista() {
+        return lista;
+    }
+
     //Adicionar
     public void adicionar(Tipo elemento) {
         lista.add(elemento);
@@ -63,14 +67,14 @@ public class ListaGenerica<Tipo> {
         }
     }
     
-    public List<Pilha> pilhaPorSegundoNome() {
+    public void pilhaPorSegundoNome() {
         
         List<Pilha> listaPilha = new ArrayList<>(); // Lista de pilhas
         List<String> listaSegundoNome = new ArrayList<>(); // Lista de segundos nomes já usados
         
         for(Tipo elemento : lista) { //Percorre cada pessoa na lista com for-each
             if(elemento instanceof Pessoa) { //Verificar se é uma pessoa
-                Pessoa pessoa = (Pessoa) elemento; //Pega o elemento do tipo Pessoa e coloca em "pessoa"              
+                Pessoa pessoa = (Pessoa) elemento; //Pega o elemento do tipo Pessoa e coloca em "pessoa"
                 //Pegar o segundo nome e colocar dentro da variavel "segundoNome"
                 String segundoNome = pegarSegundoNome(pessoa.getNome());
                 
@@ -94,8 +98,7 @@ public class ListaGenerica<Tipo> {
                 
             }
         }
-        
-        return listaPilha; //Retornar a lista de Pilhas 
+        mostrarListaPilhas(listaPilha); //Chama metodo que imprime as pilhas
         
     } //Fim do pegarPorSegundoNome
     
@@ -125,12 +128,19 @@ public class ListaGenerica<Tipo> {
             if(!pilhaAtual.pilhaVazia()) {
                 
                 //Eetorna o nome completo da pessoa que está no topo da pilha
-                String segundoNome = pegarSegundoNome(pilhaAtual.pilha.peek().getNome());
+                String segundoNome = pegarSegundoNome(pilhaAtual.getPilha().peek().getNome());
                 System.out.println("\nSegundo nome: " + segundoNome); //Imprimir O segundo nome
-                pilhaAtual.mostrarPilha();
+               pilhaAtual.mostrarPilha();
             }
             
         }
+
     }
-    
+
+    @Override
+    public String toString() {
+        return "ListaGenerica{" +
+                "lista=" + lista +
+                '}';
+    }
 }

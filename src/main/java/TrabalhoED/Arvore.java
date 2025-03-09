@@ -1,15 +1,14 @@
 
 package TrabalhoED;
 
-import java.lang.classfile.components.ClassPrinter.Node;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Arvore {
     
-    //Node é uma classe interna que representa um nó em uma árvore binária.
-    public Node raiz;
-    public List<Pessoa> naoInseridas;
+    //Node é uma classe interna que representa um nó emuma árvore binária.
+    private Node raiz;
+    private List<Pessoa> naoInseridas;
     
     //Construtor da Classe. Ele é chamado quando um novo objeto Arvore é criado.
     public Arvore() {
@@ -57,7 +56,7 @@ public class Arvore {
         }
         
         //Verificar idade. Maior para a direita e menor para a esquerda
-        if(pessoa.getIdade() < atual.pessoa.getIdade()) {            
+        if(pessoa.getIdade() < atual.pessoa.getIdade()) {
             //Adiciona na esquerda. Idade da nova pessoa menor que da pessoa do nó atual
             atual.esquerda = adicionarNaArvore(atual.esquerda, pessoa);
         } else if(pessoa.getIdade() > atual.pessoa.getIdade()) {
@@ -83,7 +82,7 @@ public class Arvore {
         return buscarNaArvore(raiz, nome); //Chama o metodo buscarNaArvore para buscar a pessoa na arvore
     }
        
-    //Buscar Pessoa na arvore
+    //Buscar Pessoa na árvore
     private Pessoa buscarNaArvore(Node atual, String nome) {
         
         //Verifica se o nó atual é null

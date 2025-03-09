@@ -7,7 +7,7 @@ import java.util.Queue;
 public class Fila {
     
     //Criação da Fila
-    public Queue<Pessoa> filaPrincipal;
+    private Queue<Pessoa> filaPrincipal;
     
     //Construtor da Classe. Ele é chamado quando um novo objeto Fila é criado.
     public Fila() {
