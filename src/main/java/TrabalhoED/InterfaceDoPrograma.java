@@ -125,6 +125,10 @@ public class InterfaceDoPrograma {
                 case 7:
                     break;
 
+                case 0:
+                    System.out.println("Encerrando programa...");
+                    break;
+
                 default:
                     System.out.println("Entrada invalida! Encerrando programa...");
                     break;
