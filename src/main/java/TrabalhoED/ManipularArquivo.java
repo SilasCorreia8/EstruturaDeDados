@@ -23,12 +23,13 @@ public class ManipularArquivo implements Serializable {
     public ListaGenerica<Pessoa> lerListaEmArquivo() {
         File arquivo = new File("src/main/java/TrabalhoED/arquivos/Lista.txt");
 
-        if (!arquivo.exists()) {
+        if (!arquivo.exists() || arquivo.length() == 0) {
             return new ListaGenerica<>(); // Retorna lista vazia se o arquivo não existir
         }
 
         try (ObjectInputStream lerArquivo = new ObjectInputStream(new FileInputStream(arquivo))) {
             return (ListaGenerica<Pessoa>) lerArquivo.readObject();
+
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

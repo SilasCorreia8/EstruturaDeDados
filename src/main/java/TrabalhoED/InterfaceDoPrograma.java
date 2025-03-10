@@ -10,12 +10,17 @@ public class InterfaceDoPrograma implements Serializable {
         ListaGenerica<Pessoa> listaNomes = new ListaGenerica<Pessoa>();
         Fila fila = new Fila();
         Arvore arvore = new Arvore();
+
         ManipularArquivo arquivo = new ManipularArquivo();
+        ListaGenerica<Pessoa> validarLista = arquivo.lerListaEmArquivo();
+        listaNomes.setLista(validarLista.getLista());
 
         int option = 0;
         do {
-
             Scanner scan = new Scanner(System.in);
+
+
+
 
             System.out.println("""
              _      ____ _____ ______   ____      ___      ___      ____    ___   ___ ___    ___  _____
@@ -34,7 +39,6 @@ public class InterfaceDoPrograma implements Serializable {
             | 5. Pessoas que possuem o mesmo sobrenome                                                 |         
             | 6. Inserir nomes de pessoas em uma arvore                                                | 
             | 7. Salvar lista                                                                          |
-            | 8. Recuperar lista                                                                       | 
             | 0. Encerrar programa                                                                     |                           
             |__________________________________________________________________________________________|  
             """);
@@ -86,12 +90,15 @@ public class InterfaceDoPrograma implements Serializable {
                     }
 
                 case 3:
+
                     System.out.println("Lista atual: \n");
                     listaNomes.mostrarLista();
                     break;
 
 
                 case 4:
+                    //Criar submenu para este caso
+
                     scan.nextLine();
                     System.out.print("Informe o nome da pessoa que deseja adicionar:");
                     String nomeParaAdicionar1 = scan.nextLine();
@@ -112,6 +119,7 @@ public class InterfaceDoPrograma implements Serializable {
                     break;
 
                 case 6:
+                    //Criar submenu para este caso
                     scan.nextLine();
                     System.out.print("Inserir pessoas nas arvores: \n");
                     System.out.print("Informe o nome da pessoa que deseja adicionar:");
@@ -134,12 +142,6 @@ public class InterfaceDoPrograma implements Serializable {
                     arquivo.gravarListaEmArquivo(listaNomes);
                     System.out.print("A lista foi salva com sucesso!\n");
                     break;
-
-                    case 8:
-                        System.out.print("Recuperando lista anterior... \n");
-                        ListaGenerica<Pessoa> validarLista = arquivo.lerListaEmArquivo();
-                        listaNomes.setLista(validarLista.getLista());
-                        break;
 
                 case 0:
                     System.out.println("Encerrando programa...");
