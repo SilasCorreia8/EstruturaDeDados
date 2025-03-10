@@ -1,10 +1,11 @@
 
 package TrabalhoED;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arvore {
+public class Arvore implements Serializable {
     
     //Node é uma classe interna que representa um nó emuma árvore binária.
     private Node raiz;

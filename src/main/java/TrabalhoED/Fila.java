@@ -1,10 +1,11 @@
 
 package TrabalhoED;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Fila {
+public class Fila implements Serializable {
     
     //Criação da Fila
     private Queue<Pessoa> filaPrincipal;

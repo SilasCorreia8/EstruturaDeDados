@@ -1,9 +1,10 @@
 
 package TrabalhoED;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class Pilha {
+public class Pilha implements Serializable {
     
     //Criação da Pilha
     private Stack<Pessoa> pilha;

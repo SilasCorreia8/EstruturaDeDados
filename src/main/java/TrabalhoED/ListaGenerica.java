@@ -3,24 +3,29 @@ package TrabalhoED;
 
 //Lista Parametrizada - Pode armazenar objetos de qualquer tipo passado
 
+import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
-public class ListaGenerica<Tipo> {
+public class ListaGenerica<Tipo> implements  Serializable{
     
     //Criação da Lista
-    private LinkedList<Tipo> lista = new LinkedList<>();
+    private java.util.LinkedList<Tipo> lista = new java.util.LinkedList<>();
     
     //Construtor da Classe. Ele é chamado quando um novo objeto ListaGenerica é criado.
     public ListaGenerica() {
         //Inicializa o atributo lista com uma nova LinkedList quando um objeto
         //ListaGenerica é criado.
-        this.lista = new LinkedList<>();
+        this.lista = new java.util.LinkedList<>();
     }
 
-    public LinkedList<Tipo> getLista() {
+    public java.util.LinkedList<Tipo> getLista() {
         return lista;
+    }
+
+    public void setLista(java.util.LinkedList<Tipo> lista) {
+        this.lista = lista;
     }
 
     //Adicionar
@@ -135,6 +140,19 @@ public class ListaGenerica<Tipo> {
             
         }
 
+    }
+
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass()) return false;
+        ListaGenerica<?> that = (ListaGenerica<?>) object;
+        return Objects.equals(lista, that.lista);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(lista);
     }
 
     @Override

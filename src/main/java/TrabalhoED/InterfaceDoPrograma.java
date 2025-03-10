@@ -1,14 +1,16 @@
 package TrabalhoED;
 
+import java.io.Serializable;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
 
-public class InterfaceDoPrograma {
+public class InterfaceDoPrograma implements Serializable {
     public static void main(String[] args) {
         ListaGenerica<Pessoa> listaNomes = new ListaGenerica<Pessoa>();
         Fila fila = new Fila();
         Arvore arvore = new Arvore();
-
+        ManipularArquivo arquivo = new ManipularArquivo();
 
         int option = 0;
         do {
@@ -31,14 +33,19 @@ public class InterfaceDoPrograma {
             | 4. Inserir lista de nomes em uma fila                                                    |                                    
             | 5. Pessoas que possuem o mesmo sobrenome                                                 |         
             | 6. Inserir nomes de pessoas em uma arvore                                                | 
-            | 7. Salvar lista                                                                          | 
+            | 7. Salvar lista                                                                          |
+            | 8. Recuperar lista                                                                       | 
             | 0. Encerrar programa                                                                     |                           
             |__________________________________________________________________________________________|  
             """);
+
+
+
             System.out.print("\nEntrar com opcao: ");
             option = scan.nextInt();
 
-
+            //LinkedList<Pessoa> listaRecuperada = (validarLista != null) ? validarLista.getLista() : new LinkedList<>();
+            //if(listaRecuperada!= null) listaNomes.setLista(listaRecuperada);
 
             switch (option) {
                 case 1:
@@ -106,8 +113,7 @@ public class InterfaceDoPrograma {
 
                 case 6:
                     scan.nextLine();
-                    System.out.println("Inserir pessoas nas arvores: \n");
-                    scan.nextLine();
+                    System.out.print("Inserir pessoas nas arvores: \n");
                     System.out.print("Informe o nome da pessoa que deseja adicionar:");
                     String nomeParaAdicionar2 = scan.nextLine();
 
@@ -123,7 +129,17 @@ public class InterfaceDoPrograma {
                     break;
 
                 case 7:
+                    scan.nextLine();
+                    System.out.print("Salvando lista em arquivo... \n");
+                    arquivo.gravarListaEmArquivo(listaNomes);
+                    System.out.print("A lista foi salva com sucesso!\n");
                     break;
+
+                    case 8:
+                        System.out.print("Recuperando lista anterior... \n");
+                        ListaGenerica<Pessoa> validarLista = arquivo.lerListaEmArquivo();
+                        listaNomes.setLista(validarLista.getLista());
+                        break;
 
                 case 0:
                     System.out.println("Encerrando programa...");

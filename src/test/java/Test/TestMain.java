@@ -2,11 +2,7 @@
 package Test;
 
 import TrabalhoED.Arvore;
-import TrabalhoED.Fila;
-import TrabalhoED.ListaGenerica;
 import TrabalhoED.Pessoa;
-import TrabalhoED.Pilha;
-import java.util.List;
 
 public class TestMain {
     public static void main(String[] args) {
